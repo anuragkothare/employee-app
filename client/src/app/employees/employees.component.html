@@ -1,0 +1,45 @@
+<div class="jumbotron">
+  <h3 style="text-align: center; font-family: 'Times New Roman', Times, serif">Employees Manager App</h3>
+</div>
+
+<div class="container">
+    <thead style="align-items: center" class="container">
+        <tr>
+          <th><strong class="add">Add a new Employee</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <button (click)="btnClick()" type="button" class="btn btn-primary">Add Employee</button>
+          </td>
+        </tr>
+      </tbody>
+      <br>
+    <table class="table table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Address</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees | async; let i = index">
+              <th scope="row">{{i+1}}</th>
+              <td>{{employee.name}}</td>
+              <td>{{employee.email}}</td>
+              <td>{{employee.phone}}</td>
+              <td>{{employee.address}}</td>
+            </tr>
+        </tbody>
+      </table>
+
+</div>
+<br>
+
+
+
+
