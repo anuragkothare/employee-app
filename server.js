@@ -23,7 +23,7 @@ mongoose
 
 
 // Create link to Angular build directory
-var distDir = __dirname + "/dist/";
+var distDir = __dirname + "/client/dist/";
 app.use(express.static(distDir));
 
 
