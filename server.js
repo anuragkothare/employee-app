@@ -21,6 +21,11 @@ mongoose
     .then(() => console.log('MongoDB Connected'))
     .catch(err => console.log(err))
 
+    
+// Create link to Angular build directory
+var distDir = __dirname + "/dist/";
+app.use(express.static(distDir));
+
 
 app.get('/', (req, res) => {
     res.send('HELLO')
