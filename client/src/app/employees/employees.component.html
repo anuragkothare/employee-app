@@ -24,15 +24,18 @@
             <th scope="col">Email</th>
             <th scope="col">Phone</th>
             <th scope="col">Address</th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let employee of employees | async; let i = index">
+            <tr *ngFor="let employee of employees$ | async; let i = index">
               <th scope="row">{{i+1}}</th>
               <td>{{employee.name}}</td>
               <td>{{employee.email}}</td>
               <td>{{employee.phone}}</td>
               <td>{{employee.address}}</td>
+              <td><button class="btn btn-danger" (click)="removeEmployee(employee._id)">Delete</button></td>
+
             </tr>
         </tbody>
       </table>

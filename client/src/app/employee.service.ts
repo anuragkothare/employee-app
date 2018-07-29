@@ -14,10 +14,14 @@ export class EmployeeService {
   public baseUrl = "http://localhost:5000/api"
 
   getEmployees() {
-    return this.http.get<Employee[]>('api/employees')
+    return this.http.get<Employee[]>(this.baseUrl+'/employees')
   }
 
   registerEmployee(model:Employee) {
-    return this.http.post('api/employees/register', model)
+    return this.http.post( this.baseUrl + '/employees/register', model)
+  }
+
+  deleteEmployee(id: String) {
+    return this.http.delete(this.baseUrl+ '/employees'+ '/' + id)
   }
 }

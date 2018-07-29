@@ -14,22 +14,31 @@ import { Location } from '@angular/common';
 })
 export class EmployeesComponent implements OnInit {
 
-  public employees: Observable<Array<Employee>>
+  public employees$: Observable<Array<Employee>>
+
+
 
   constructor(private employeeService: EmployeeService, public router: Router, private location: Location) { }
 
   ngOnInit() {
     console.log("test")
-    this.employees = this.employeeService.getEmployees()
-    console.log("NgONIT called")
+    this.employees$ = this.employeeService.getEmployees()
+
   }
 
   btnClick() {
     this.router.navigate(['/register']);
   }
 
-  cancel() {
-    this.location.back(); // <-- go back to previous location on cancel
+  removeEmployee(employee_id: String) {
+    console.log(employee_id)
+    this.employeeService.deleteEmployee(employee_id).subscribe(
+      (data) => {
+        console.log(data)
+        this.employees$ = this.employeeService.getEmployees()
+      },
+      error => console.log(error)
+    )
   }
 
 }

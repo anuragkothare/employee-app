@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  model:Employee = new Employee("", "", 1, "")
+  model:Employee = new Employee("","", "", 1, "")
 
   onSubmit() {
       this.employeeService.registerEmployee(this.model).subscribe(
